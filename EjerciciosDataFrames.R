@@ -128,11 +128,68 @@ select_random <- function(df){
   return(df)
 }
 
-#18
+#18 Write a R program to reorder an given data frame by column name
+
+
+#19 Write a R program to compare two data frames to find the elements 
+# in first data frame that are not present in second data frame
 df1 = data.frame(c(1,2,3,4,5,6))
 df2 = data.frame(c(1,2,3))
 
 df1 = c(1,2,3,4,5,6)
 df2 = c(1,2,3)
 
-result = setdiff(df1, df2)
+result = setdiff(df1, df2) #no vale para dataframes
+
+diff_elements <- function(df1, df2){
+  
+  vec1 <- as.vector(as.matrix(df1))
+  vec2 <- as.vector(as.matrix(df2))
+  
+  result = setdiff(vec1, vec2)
+  return(result)
+  
+}
+
+#20 Write a R program to find elements which are present in two given data frames
+
+com_elements <- function(df1, df2){
+  
+  vec1 <- as.vector(as.matrix(df1))
+  vec2 <- as.vector(as.matrix(df2))
+  
+  mask <- vec1 %in% vec2
+  
+  comun <- vec1(mask)
+  return(comun)
+  
+}
+
+# 21. Write a R program to find elements come only once that are common
+# to both given data frames.
+
+com_unique_elements2 <- function(df1, df2){
+  
+  vect1 <- as.vector(as.matrix(df1))
+  vect1 <- as.vector(as.matrix(df1))
+  
+  value_count1 <- table(vect1) #cuenta numero de veces de cada elemento en el df
+  value_count2 <- table(vect2)
+  
+  mask_unique1 <- value_count1 == 1
+  mask_unique2 <- value_count2 == 1
+  
+  unicos1 <- names(value_count1)[mask_unique1]
+  unicos2 <- names(value_count2)[mask_unique2]
+  
+  comun <- unicos1 %in% unicos2
+  
+  return(comun)
+  
+}
+
+
+# 23. Write a R program to count the number of NA values in a data frame column
+# 
+
+sum(is.na(df))
